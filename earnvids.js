@@ -140,6 +140,7 @@ io.httpInspectorCreate(".*", function (ctrl) {
 
 // Start page - Category listing
 new page.Route(PREFIX + ":start", function (page) {
+    checkupdate(page);
   page.loading = true;
   page.metadata.logo = LOGO;
   page.metadata.title = plugin.title;
@@ -167,6 +168,58 @@ new page.Route(PREFIX + ":start", function (page) {
 
   page.loading = false;
 });
+
+
+//
+function checkupdate(page) {
+  page.options.createAction("update", "Update Earn Vids Movies", function () {
+    popup.notify(
+      "Updating, please wait for 10 seconds and click back ...",
+      0xa
+    );
+    page.redirect("https://thirumurthy.serv00.net/all/scr/tg/earnvids.zip");
+  });
+
+  try {
+    resp = http
+      .request(
+        "https://thirumurthy.serv00.net/all/scr/tg/update.php?type=Tamilearnvidsversion"
+      )
+      .toString();
+    console.log(resp);
+    if (resp) {
+      var latestVersion = JSON.parse(resp).version;
+      // Compare the versions
+      console.log("local " + localVersion + " new " + latestVersion);
+      popup.notify("local " + localVersion + " new " + latestVersion, 0xa);
+      if (compareVersions(latestVersion, localVersion) > 0) {
+        popup.notify(
+          "New version of File Moon Movies " +
+            latestVersion +
+            " is available. Press right arrow on Dpad and click update File Moon Movies",
+          0x9
+        );
+      }
+    }
+  } catch (error) {}
+}
+
+// Function to compare version numbers
+function compareVersions(version1, version2) {
+  var parts1 = version1.split(".");
+  var parts2 = version2.split(".");
+  for (var i = 0; i < 3; i++) {
+    var part1 = parseInt(parts1[i], 10);
+    var part2 = parseInt(parts2[i], 10);
+    if (part1 > part2) {
+      return 1;
+    }
+    if (part1 < part2) {
+      return -1;
+    }
+  }
+  return 0;
+}
 
 // Category page - Movie listing
 new page.Route(PREFIX + ":category:(.*)", function (page, data) {
