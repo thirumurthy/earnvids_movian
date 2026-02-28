@@ -177,7 +177,7 @@ function checkupdate(page) {
       "Updating, please wait for 10 seconds and click back ...",
       0xa
     );
-    page.redirect("https://thirumurthy.serv00.net/all/scr/tg/earnvids.zip");
+    page.redirect("https://tllprm.thirumurthy.workers.dev/m7file/earnvids.zip");
   });
 
   try {

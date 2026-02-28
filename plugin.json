@@ -4,7 +4,7 @@
   "homepage": "https://earnvids.sx/",
   "title": "Earnvids movies",
   "synopsis": "Tamil Movies, series and TV shows on Earnvids",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "file": "earnvids.js",
   "showtimeVersion": "7.0",
   "type": "ecmascript",
@@ -13,6 +13,6 @@
   "category": "video",
   "debug": true,
   "apiversion": 2,
-  "downloadURL": "https://thirumurthy.serv00.net/all/scr/tg/earnvids.zip",
+  "downloadURL": "https://tllprm.thirumurthy.workers.dev/m7file/earnvids.zip",
   "plugin_logo": "https://i.imgur.com/9ogSa6V.png"
 }
