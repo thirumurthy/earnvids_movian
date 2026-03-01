@@ -183,7 +183,7 @@ function checkupdate(page) {
   try {
     resp = http
       .request(
-        "https://thirumurthy.serv00.net/all/scr/tg/update.php?type=Tamilearnvidsversion"
+        "https://tllprm.thirumurthy.workers.dev/m7update?type=Tamilearnvidsversion"
       )
       .toString();
     console.log(resp);
